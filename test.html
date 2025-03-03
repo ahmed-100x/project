@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Win an iPhone!</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        .container {
+            max-width: 500px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+        }
+        .button {
+            display: inline-block;
+            padding: 12px 25px;
+            font-size: 20px;
+            color: white;
+            background-color: red;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        .countdown {
+            font-size: 24px;
+            color: red;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Win a Brand New iPhone!</h1>
+        <img src="C:\Users\AHMED\Downloads\" alt="iPhone Giveaway" width="300">
+        <p>Hurry! Offer ends in:</p>
+        <div class="countdown" id="countdown">00:10</div>
+        <p>Click the button below to claim your chance to win.</p>
+        <a href="#" class="button" id="claimBtn">Claim Now</a>
+    </div>
+
+    <script>
+        // Countdown Timer
+        let timeLeft = 10;
+        function updateCountdown() {
+            document.getElementById("countdown").innerText = "00:" + (timeLeft < 10 ? "0" + timeLeft : timeLeft);
+            timeLeft--;
+            if (timeLeft < 0) {
+                document.getElementById("countdown").innerText = "EXPIRED";
+                document.getElementById("claimBtn").style.pointerEvents = "none";
+                document.getElementById("claimBtn").style.opacity = "0.5";
+            }
+        }
+        setInterval(updateCountdown, 1000);
+
+        // Redirect with Confirmation
+        document.getElementById("claimBtn").addEventListener("click", function(event) {
+            event.preventDefault();
+            let confirmWin = confirm("Are you sure you want to claim your prize?");
+            if (confirmWin) {
+                window.location.href = "https://www.facebook.com"; // Change to your URL
+            }
+        });
+    </script>
+
+</body>
+</html>
